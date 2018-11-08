@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Paint</title>
+    <script src="paint.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
+    <style>
+        .header {
+            width: 100%;
+            height: 140px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .container {
+            background-color: lightgreen;
+            display: flex;
+            flex-direction: row;
+            vertical-align: center;
+            justify-items: center;
+        }
+        .colors {
+            display: flex;
+            flex-direction: column;
+            margin-left: 11%;
+            list-style: none;
+        }
+        .colors button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .colors button.black {
+            background-color: black;
+        }
+        .colors button.blue {
+            background-color: blue;
+        }
+        .colors button.green {
+            background-color: green;
+        }
+        .colors button.yellow {
+            background-color: yellow;
+        }
+        .colors button.red {
+            background-color: red;
+        }
+        img {
+            height: 140px;
+            width: 200px;
+        }
+        .canvas {
+            border: 2px solid purple;
+            background-color: white;
+            margin: auto;
+            width: 50%;
+            height: 500px;
+            position: relative;
+        }
+    </style>
+</head>
+<body style="margin:0; font-family: 'Mali', cursive;">
+    <div class="header">
+        <img src="https://www.freeiconspng.com/uploads/paint-brush-stroke-png-1.png">
+        <h1>Jona's Online Paint</h1>
+    </div>
+    <div class="container">
+        <ul class="colors">
+            <li ><button class="black"></button></li>
+            <li ><button class="blue"></button></li>
+            <li ><button class="green"></button></li>
+            <li ><button class="yellow"></button></li>
+            <li ><button class="red"></button></li>
+        </ul>
+        <div class="canvas"></div>
+    </div>
+
+<script>
+    
+    document.getElementsByClassName("canvas")[0].addEventListener("mousedown",pain);
+    function paint(e) {
+        var x = e.clientX;
+        var y = e.clientY;
+        x = 
+    }
+
+</script>
+</body>
+
+</html>
