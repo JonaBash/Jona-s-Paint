@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Paint</title>
-    <script src="paint.js"></script>
+    <title>Jona's Paint</title>
     <link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
     <style>
         .header {
@@ -32,35 +32,43 @@
             margin-top: 20px;
             margin-bottom: 20px;
         }
-        .colors button.black {
+        .colors button#black {
             background-color: black;
         }
-        .colors button.blue {
+        .colors button#blue {
             background-color: blue;
         }
-        .colors button.green {
+        .colors button#green {
             background-color: green;
         }
-        .colors button.yellow {
+        .colors button#yellow {
             background-color: yellow;
         }
-        .colors button.red {
+        .colors button#red {
             background-color: red;
         }
         img {
             height: 140px;
             width: 200px;
         }
-        .canvas {
+        #canvas {
             border: 2px solid purple;
             background-color: white;
             margin: auto;
             width: 50%;
             height: 500px;
             position: relative;
+            overflow: hidden;
+        }
+        #circle {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: black;
         }
     </style>
 </head>
+
 <body style="margin:0; font-family: 'Mali', cursive;">
     <div class="header">
         <img src="https://www.freeiconspng.com/uploads/paint-brush-stroke-png-1.png">
@@ -68,25 +76,70 @@
     </div>
     <div class="container">
         <ul class="colors">
-            <li ><button class="black"></button></li>
-            <li ><button class="blue"></button></li>
-            <li ><button class="green"></button></li>
-            <li ><button class="yellow"></button></li>
-            <li ><button class="red"></button></li>
+            <li><button name="col" id="black" value="black"></button></li>
+            <li><button name="col" id="blue" value="blue"></button></li>
+            <li><button name="col" id="green" value="green"></button></li>
+            <li><button name="col" id="yellow" value="yellow"></button></li>
+            <li><button name="col" id="red" value="red"></button></li>
         </ul>
-        <div class="canvas"></div>
+        <div id="canvas"></div>
     </div>
 
-<script>
-    
-    document.getElementsByClassName("canvas")[0].addEventListener("mousedown",pain);
-    function paint(e) {
-        var x = e.clientX;
-        var y = e.clientY;
-        x = 
-    }
+    <script>
+        // var paint = {};
+        // paint.colors = ["black","blue","green","yellow","red"];
 
-</script>
+        var colorPicked;
+        var col = document.getElementsByName("col");
+        for (var i = 0; i < col.length; i++) {
+            col[i].addEventListener("click", function (e) {
+                console.log(this.id);
+                colorPicked = this.id;
+            });
+        }
+
+        canvas.addEventListener("mousedown", draw);
+        canvas.addEventListener("mousemove", draw);
+        function draw(e){
+            if (event.buttons == 1) {
+                var circle = document.createElement("div");
+                circle.style.backgroundColor = colorPicked;
+                circle.style.width = "10px";
+                circle.style.height = "10px";
+                circle.style.borderRadius = "50%";
+                circle.style.position = "absolute";
+                circle.style.top = event.clientY - this.offsetTop + "px";
+                circle.style.left = event.clientX - this.offsetLeft + "px";
+                canvas.appendChild(circle);
+            }
+            else if (event.buttons == 2) {
+                var circle = document.createElement("div");
+                circle.style.backgroundColor = "white";
+                circle.style.width = "10px";
+                circle.style.height = "10px";
+                circle.style.borderRadius = "50%"
+                circle.style.position = "absolute";
+                circle.style.top = event.clientY - this.offsetTop + "px";
+                circle.style.left = event.clientX - this.offsetLeft + "px";
+                canvas.appendChild(circle);
+            }
+            document.addEventListener("contextmenu", function (e) {
+                e.preventDefault();
+            }, false);
+        }
+
+
+
+
+    // var black = document.getElementsByClassName(black)[0].
+    // document.getElementsByClassName("canvas")[0].addEventListener("mousedown",pain);
+    // function paint(e) {
+    //     var x = e.clientX;
+    //     var y = e.clientY;
+
+
+
+    </script>
 </body>
 
 </html>
